@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\GymController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\TripController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -26,4 +27,8 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth:sanctum')->group(function () {
     // Autenticação
     Route::post('/auth/logout', [AuthController::class, 'logout']);
+    // Viagens
+    Route::post('/trip/register', [TripController::class, 'register']);
+    Route::get('/trip/show/{id}', [TripController::class, 'show']);
+    Route::get('/trip/showAll', [TripController::class, 'showAll']);
 });
