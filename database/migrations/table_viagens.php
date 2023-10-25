@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('destino', 50);
             $table->double('orcamento');
             $table->integer('user_id');
+            $table->integer('status');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });

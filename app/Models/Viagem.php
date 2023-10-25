@@ -11,5 +11,5 @@ class Viagem extends Model
 
     protected $table = 'viagens';
 
-    protected $fillable = ['destino', 'data_inicio', 'data_fim', 'orcamento', 'user_id'];
+    protected $fillable = ['destino', 'data_inicio', 'data_fim', 'orcamento', 'user_id', 'status'];
 }

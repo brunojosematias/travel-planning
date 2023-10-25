@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Enums\StatusEnum;
 use App\Http\Requests\TripCreateRequest;
 use App\Models\User;
 use App\Models\Viagem;
@@ -19,7 +20,23 @@ class TripService
                     'data_fim' => $trip->data_fim,
                     'destino' => $trip->destino,
                     'orcamento' => $trip->orcamento,
+                    'status' => StatusEnum::ACTIVED->value
                 ]
+            );
+        } catch (\Exception $e) {
+            throw new \Exception ($e->getMessage());
+        }
+    }
+
+    public function finish(int $id)
+    {
+        try {
+            return Viagem::query()
+            ->where('id', $id)
+            ->where('user_id', auth()->user()->id)
+            ->where('status', StatusEnum::ACTIVED->value)
+            ->update(
+                ['status' => StatusEnum::FINISHED->value]
             );
         } catch (\Exception $e) {
             throw new \Exception ($e->getMessage());

@@ -16,14 +16,27 @@ class TripController extends Controller
         $this->tripService = $tripService;
     }
 
+    public function finish(int $id)
+    {
+        try {
+            $response = $this->tripService->finish($id);
+            if ($response) {
+                return response(['data' => 'Viagem finalizada com sucesso!'], 200);
+            }
+            return response(['data' => 'Falha ao finalizar viagem'], 500);
+        } catch (Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+
     public function register(TripCreateRequest $register)
     {
         try {
             $response = $this->tripService->create($register);
             if ($response) {
-                return response('Cadastro efetuado com sucesso!', 200);
+                return response(['data' => 'Cadastro efetuado com sucesso!'], 200);
             }
-            return response('Falha ao cadastrar', 500);
+            return response(['data' => 'Falha ao cadastrar'], 500);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }

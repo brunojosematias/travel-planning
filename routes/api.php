@@ -29,6 +29,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/auth/logout', [AuthController::class, 'logout']);
     // Viagens
     Route::post('/trip/register', [TripController::class, 'register']);
+    Route::put('/trip/finish/{id}', [TripController::class, 'finish']);
     Route::get('/trip/show/{id}', [TripController::class, 'show']);
     Route::get('/trip/showAll', [TripController::class, 'showAll']);
 });
