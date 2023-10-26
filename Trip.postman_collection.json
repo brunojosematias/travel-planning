@@ -1,0 +1,281 @@
+{
+	"info": {
+		"_postman_id": "293073d9-adf2-4ad8-8259-0537927ee7f0",
+		"name": "Trip",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29370957",
+		"_collection_link": "https://red-water-870206.postman.co/workspace/Cond-Suite~c781f809-ec0a-4d73-8c17-04526d6ef635/collection/29370957-293073d9-adf2-4ad8-8259-0537927ee7f0?action=share&source=collection_link&creator=29370957"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/auth/register?email=cgabrieltd@gmail.com&password=a12345&name=Caíque Gabriel&birthday=1998-06-02&cpf=10000000000",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"auth",
+						"register"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "cgabrieltd@gmail.com"
+						},
+						{
+							"key": "password",
+							"value": "a12345"
+						},
+						{
+							"key": "name",
+							"value": "Caíque Gabriel"
+						},
+						{
+							"key": "birthday",
+							"value": "1998-06-02"
+						},
+						{
+							"key": "cpf",
+							"value": "10000000000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/auth/login?email=cgabrieltd@gmail.com&password=a12345",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "cgabrieltd@gmail.com"
+						},
+						{
+							"key": "password",
+							"value": "a12345"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "2|e98M2mLd0IGWmvIYgSufMzCkBKRcX3lZlUOjmpvK37500d1d",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/auth/logout",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"auth",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastrar viagem",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "1|i8ctsgVZDiE09V68Bl7eUUCCZDh1c92KqF4ilShL34dc89d6",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/trip/register?data_inicio=2023-09-05&data_fim=2023-09-10&orcamento=12500&destino=São Paulo",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"trip",
+						"register"
+					],
+					"query": [
+						{
+							"key": "data_inicio",
+							"value": "2023-09-05"
+						},
+						{
+							"key": "data_fim",
+							"value": "2023-09-10"
+						},
+						{
+							"key": "orcamento",
+							"value": "12500"
+						},
+						{
+							"key": "destino",
+							"value": "São Paulo"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pegar um",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "1|i8ctsgVZDiE09V68Bl7eUUCCZDh1c92KqF4ilShL34dc89d6",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/trip/show/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"trip",
+						"show",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pegar vários",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "1|i8ctsgVZDiE09V68Bl7eUUCCZDh1c92KqF4ilShL34dc89d6",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/trip/showAll",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"trip",
+						"showAll"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Marcar como finalizado",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "1|i8ctsgVZDiE09V68Bl7eUUCCZDh1c92KqF4ilShL34dc89d6",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/trip/finish/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"trip",
+						"finish",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
