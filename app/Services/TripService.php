@@ -3,19 +3,23 @@
 namespace App\Services;
 
 use App\Enums\StatusEnum;
-use App\Http\Requests\TripCreateRequest;
+use App\Http\Requests\ITripCreateRequest;
 use App\Models\User;
 use App\Models\Viagem;
 use Illuminate\Http\Request;
 
 class TripService
 {
-    public function create(TripCreateRequest $trip)
+    public function create(ITripCreateRequest $trip)
     {
         try {
+            if (auth()->user())
+                $id = auth()->user()->id;
+            else
+                $id = $trip->user_id;
             return Viagem::query()->create(
                 [
-                    'user_id' => auth()->user()->id,
+                    'user_id' => $id,
                     'data_inicio' => $trip->data_inicio,
                     'data_fim' => $trip->data_fim,
                     'destino' => $trip->destino,
@@ -23,6 +27,17 @@ class TripService
                     'status' => StatusEnum::ACTIVED->value
                 ]
             );
+        } catch (\Exception $e) {
+            throw new \Exception ($e->getMessage());
+        }
+    }
+
+    public function remove(int $id)
+    {
+        try {
+            return Viagem::query()
+            ->where('id', $id)
+            ->delete();
         } catch (\Exception $e) {
             throw new \Exception ($e->getMessage());
         }

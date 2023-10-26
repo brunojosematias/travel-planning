@@ -2,12 +2,24 @@
 
 namespace App\Services;
 
+use App\Http\Requests\IUserCreateRequest;
 use App\Http\Requests\UserCreateRequest;
 use App\Models\User;
 
 class UserService
 {
-    public function create(UserCreateRequest $user)
+    public function remove(int $id)
+    {
+        try {
+            return User::query()
+            ->where('id', $id)
+            ->delete();
+        } catch (\Exception $e) {
+            throw new \Exception ($e->getMessage());
+        }
+    }
+
+    public function create(IUserCreateRequest $user)
     {
         try {
             $emailExists = User::query()->where('email', '=', $user->email)->first();
