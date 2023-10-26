@@ -1,5 +1,10 @@
-import { Text } from "../components/Text";
+import { Routes } from "../routes";
+import { Container } from "./styles";
 
 export function Main() {
-  return <Text>Main renderizou</Text>;
+  return (
+    <Container>
+      <Routes />
+    </Container>
+  );
 }
