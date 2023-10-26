@@ -9,7 +9,6 @@ export function AppRouters() {
   return (
     <Navigator screenOptions={{ headerShown: false }}>
       <Screen name="login" component={FormLogin} />
-
       <Screen name="register" component={FormRegister} />
     </Navigator>
   );

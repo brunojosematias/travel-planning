@@ -4,7 +4,11 @@ import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
 import { TouchableOpacity } from "react-native";
 
-export function FormLogin() {
+export function FormLogin({ navigation }: any) {
+  function handleLoginScreen() {
+    navigation.navigate("register");
+  }
+
   return (
     <Container>
       <Text size={32} weight="800">
@@ -30,6 +34,7 @@ export function FormLogin() {
       <Button onPress={() => alert("Logou")}>Sing in</Button>
 
       <TouchableOpacity
+        onPress={handleLoginScreen}
         style={{
           alignItems: "center",
           marginTop: 12,
