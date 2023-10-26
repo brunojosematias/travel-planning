@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Validation\Rule;
 
-class TripCreateRequest extends CustomRequest
+class TripCreateRequest extends CustomRequest implements ITripCreateRequest
 {
 
     /**

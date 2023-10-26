@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Validation\Rule;
 
-class UserCreateRequest extends CustomRequest
+class UserCreateRequest extends CustomRequest implements IUserCreateRequest
 {
 
     /**
