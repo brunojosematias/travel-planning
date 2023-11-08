@@ -1,11 +1,17 @@
-import { NavigationContainer } from "@react-navigation/native";
+import { NavigationContainer } from '@react-navigation/native';
 
-import { AppRouters } from "./app.routes";
+import { View } from 'react-native';
+
+import { AppRoutes } from './app.routes';
+
+import colors from 'tailwindcss/colors';
 
 export function Routes() {
   return (
-    <NavigationContainer>
-      <AppRouters />
-    </NavigationContainer>
+    <View style={{ flex: 1, backgroundColor: colors.green[100] }}>
+      <NavigationContainer>
+        <AppRoutes />
+      </NavigationContainer>
+    </View>
   );
 }

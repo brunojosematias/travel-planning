@@ -1,26 +1,35 @@
-import { useFonts } from "expo-font";
+import { StatusBar } from 'react-native';
 
-import { StatusBar } from "expo-status-bar";
-import { Main } from "./src/Main";
-// import { StatusBar } from "expo-status-bar";
+import { Routes } from './src/routes';
+
+import { Loading } from './src/components/Loading';
+
+import {
+  useFonts,
+  Inter_200ExtraLight,
+  Inter_400Regular,
+  Inter_500Medium,
+  Inter_600SemiBold,
+  Inter_800ExtraBold,
+} from '@expo-google-fonts/inter';
 
 export default function App() {
-  const [isFontsLoaded] = useFonts({
-    "Inter-200": require("./src/assets/fonts/Inter-ExtraLight.ttf"),
-    "Inter-400": require("./src/assets/fonts/Inter-Regular.ttf"),
-    "Inter-500": require("./src/assets/fonts/Inter-Medium.ttf"),
-    "Inter-600": require("./src/assets/fonts/Inter-SemiBold.ttf"),
-    "Inter-800": require("./src/assets/fonts/Inter-ExtraBold.ttf"),
+  const [fontsLoaded] = useFonts({
+    Inter_200ExtraLight,
+    Inter_400Regular,
+    Inter_500Medium,
+    Inter_600SemiBold,
+    Inter_800ExtraBold,
   });
-
-  if (!isFontsLoaded) {
-    return null;
-  }
 
   return (
     <>
-      <StatusBar style="dark" />
-      <Main />
+      <StatusBar
+        barStyle="dark-content"
+        backgroundColor="transparent"
+        translucent
+      />
+      {fontsLoaded ? <Routes /> : <Loading />}
     </>
   );
 }
