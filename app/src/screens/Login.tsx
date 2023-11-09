@@ -42,9 +42,7 @@ export function Login() {
           </View>
         </View>
 
-        <Button onPress={handleLogin}>
-          <Text className="text-white text-[20px]">Entrar</Text>
-        </Button>
+        <Button onPress={handleLogin}>Entrar</Button>
 
         <TouchableOpacity
           onPress={handleScreenRegister}

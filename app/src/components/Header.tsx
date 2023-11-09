@@ -16,7 +16,7 @@ type HeaderProps = {
 function Button({ children, selectedButton = false, ...rest }: ButtonProps) {
   return (
     <TouchableOpacity
-      className={`items-center justify-center py-3 w-[150px] rounded-[10px] ${
+      className={`items-center justify-center py-3 w-[150px] rounded-[10px] shadow-lg ${
         selectedButton
           ? 'bg-green-500'
           : 'bg-white border-gray-400 border-[1px] text-gray-500'
