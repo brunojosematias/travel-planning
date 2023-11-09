@@ -16,7 +16,7 @@ export function Trip({
   returnDate,
 }: Props) {
   return (
-    <View className="flex-row justify-between items-center border-gray-400 border-[0.5px] py-2 px-[14px] mb-[15px] rounded-[5px] ">
+    <TouchableOpacity className="flex-row justify-between items-center border-gray-400 border-[0.5px] py-2 px-[14px] mb-[15px] rounded-[5px] ">
       <View>
         <Text className="text-gray-500 text-[15px]">{location}</Text>
         <View className="flex-row">
@@ -38,6 +38,6 @@ export function Trip({
       <TouchableOpacity>
         <Edit />
       </TouchableOpacity>
-    </View>
+    </TouchableOpacity>
   );
 }
