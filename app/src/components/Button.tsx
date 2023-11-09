@@ -1,3 +1,5 @@
+// import { TextProps } from 'react-native';
+
 import { styled } from 'nativewind';
 import { Text, TouchableOpacityProps } from 'react-native';
 import { TouchableOpacity } from 'react-native';
@@ -9,10 +11,10 @@ type Props = TouchableOpacityProps & {
 export function ButtonStyled({ children, ...rest }: Props) {
   return (
     <TouchableOpacity
-      className="bg-green-500 w-full h-[38px] rounded-[15px] justify-center items-center"
+      className="w-full bg-green-500 h-[38px] rounded-[15px] justify-center items-center"
       {...rest}
     >
-      <Text className="text-white text-[20px]">{children}</Text>
+      <Text className="text-xl text-white">{children}</Text>
     </TouchableOpacity>
   );
 }
