@@ -19,6 +19,7 @@
     "quotes": ["error", "single"],
     "semi": ["error", "always"],
     "react/react-in-jsx-scope": "off",
-    "no-undef": "off"
+    "no-undef": "off",
+    "prefer-const": "off"
   }
 }

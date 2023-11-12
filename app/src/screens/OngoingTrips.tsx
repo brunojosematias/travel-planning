@@ -6,8 +6,16 @@ import { Trip } from '../components/Trip';
 import { useState } from 'react';
 import { ListEmpty } from '../components/ListEmpty';
 
+type TripsTypes = {
+  id: string;
+  location: string;
+  expectedDate: string;
+  returnDate: string;
+  investment: string;
+};
+
 export function OngoingTrips() {
-  const [trips, useTrips] = useState([
+  const [trips, useTrips] = useState<TripsTypes[]>([
     // {
     //   id: '1',
     //   location: 'Viagem para o Rio de Janeiro',
@@ -104,9 +112,9 @@ export function OngoingTrips() {
   return (
     <SafeAreaView className="flex-1 bg-white">
       <View className="py-[37px] px-[24px]">
-        <Header title="Hi, Olivia!" />
+        <Header />
 
-        <View className="mt-9 pb-[200px]">
+        <View className="mt-9 pb-52">
           <FlatList
             showsVerticalScrollIndicator={false}
             data={trips}

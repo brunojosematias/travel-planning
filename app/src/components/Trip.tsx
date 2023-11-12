@@ -22,15 +22,15 @@ export function Trip({
         <View className="flex-row">
           <View>
             <Text className="text-gray-400 text-[8px]">
-              Data prevista: {investment}
+              Data prevista: {expectedDate}
             </Text>
             <Text className="text-gray-400 text-[8px] mt-[2px]">
-              Investimento: {returnDate}
+              Investimento: {investment}
             </Text>
           </View>
 
           <Text className="text-gray-400 text-[8px] ml-[15px]">
-            Data volta: {expectedDate}
+            Data volta: {returnDate}
           </Text>
         </View>
       </View>

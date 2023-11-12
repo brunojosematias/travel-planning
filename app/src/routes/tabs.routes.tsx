@@ -2,7 +2,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Feather } from '@expo/vector-icons';
 
 import { OngoingTrips } from '../screens/OngoingTrips';
-import { Trips } from '../screens/Trips';
+import { TravelRegistration } from '../screens/TravelRegistration';
 
 const Tab = createBottomTabNavigator();
 
@@ -19,8 +19,8 @@ export function TabRoutes() {
       />
 
       <Tab.Screen
-        name="trips"
-        component={Trips}
+        name="travel-registration"
+        component={TravelRegistration}
         options={{
           tabBarIcon: ({ size }) => <Feather name="plus" size={size} />,
           tabBarLabel: '',

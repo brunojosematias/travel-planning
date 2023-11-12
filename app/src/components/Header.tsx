@@ -9,8 +9,8 @@ type ButtonProps = TouchableOpacityProps & {
 };
 
 type HeaderProps = {
-  title: string;
   selectedButton?: boolean;
+  noButtons?: boolean;
 };
 
 function Button({ children, selectedButton = false, ...rest }: ButtonProps) {
@@ -34,19 +34,24 @@ function Button({ children, selectedButton = false, ...rest }: ButtonProps) {
   );
 }
 
-export function Header({ title, selectedButton = true }: HeaderProps) {
+export function Header({
+  selectedButton = true,
+  noButtons = false,
+}: HeaderProps) {
   return (
     <View>
       <View className="flex-row items-center">
         <Perfil />
-        <Text className="font-extralight text-3xl ml-[18px]">{title}</Text>
+        <Text className="font-extralight text-3xl ml-[18px]">Hi, Olivia!</Text>
       </View>
 
-      <View className="flex-row justify-between mt-[46px]">
-        <Button selectedButton={selectedButton}>Viagens em andamento</Button>
+      {!noButtons && (
+        <View className="flex-row justify-between mt-[46px]">
+          <Button selectedButton={selectedButton}>Viagens em andamento</Button>
 
-        <Button>Viagens concluidas</Button>
-      </View>
+          <Button>Viagens concluidas</Button>
+        </View>
+      )}
     </View>
   );
 }
