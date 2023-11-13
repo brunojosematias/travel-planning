@@ -1,4 +1,5 @@
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useNavigation } from '@react-navigation/native';
 
 import { FlatList, View } from 'react-native';
 import { Header } from '../components/Header';
@@ -16,98 +17,106 @@ type TripsTypes = {
 
 export function OngoingTrips() {
   const [trips, useTrips] = useState<TripsTypes[]>([
-    // {
-    //   id: '1',
-    //   location: 'Viagem para o Rio de Janeiro',
-    //   expectedDate: ' 07/11/2023',
-    //   returnDate: '20/11/2023',
-    //   investment: '1.000,00',
-    // },
-    // {
-    //   id: '2',
-    //   location: 'Viagem para o Rio de Janeiro',
-    //   expectedDate: ' 07/11/2023',
-    //   returnDate: '20/11/2023',
-    //   investment: '1.000,00',
-    // },
-    // {
-    //   id: '3',
-    //   location: 'Viagem para o Rio de Janeiro',
-    //   expectedDate: ' 07/11/2023',
-    //   returnDate: '20/11/2023',
-    //   investment: '1.000,00',
-    // },
-    // {
-    //   id: '4',
-    //   location: 'Viagem para o Rio de Janeiro',
-    //   expectedDate: ' 07/11/2023',
-    //   returnDate: '20/11/2023',
-    //   investment: '1.000,00',
-    // },
-    // {
-    //   id: '5',
-    //   location: 'Viagem para o Rio de Janeiro',
-    //   expectedDate: ' 07/11/2023',
-    //   returnDate: '20/11/2023',
-    //   investment: '1.000,00',
-    // },
-    // {
-    //   id: '6',
-    //   location: 'Viagem para o Rio de Janeiro',
-    //   expectedDate: ' 07/11/2023',
-    //   returnDate: '20/11/2023',
-    //   investment: '1.000,00',
-    // },
-    // {
-    //   id: '7',
-    //   location: 'Viagem para o Rio de Janeiro',
-    //   expectedDate: ' 07/11/2023',
-    //   returnDate: '20/11/2023',
-    //   investment: '1.000,00',
-    // },
-    // {
-    //   id: '8',
-    //   location: 'Viagem para o Rio de Janeiro',
-    //   expectedDate: ' 07/11/2023',
-    //   returnDate: '20/11/2023',
-    //   investment: '1.000,00',
-    // },
-    // {
-    //   id: '9',
-    //   location: 'Viagem para o Rio de Janeiro',
-    //   expectedDate: ' 07/11/2023',
-    //   returnDate: '20/11/2023',
-    //   investment: '1.000,00',
-    // },
-    // {
-    //   id: '10',
-    //   location: 'Viagem para o Rio de Janeiro',
-    //   expectedDate: ' 07/11/2023',
-    //   returnDate: '20/11/2023',
-    //   investment: '1.000,00',
-    // },
-    // {
-    //   id: '11',
-    //   location: 'Viagem para o Rio de Janeiro',
-    //   expectedDate: ' 07/11/2023',
-    //   returnDate: '20/11/2023',
-    //   investment: '1.000,00',
-    // },
-    // {
-    //   id: '12',
-    //   location: 'Viagem para o Rio de Janeiro',
-    //   expectedDate: ' 07/11/2023',
-    //   returnDate: '20/11/2023',
-    //   investment: '1.000,00',
-    // },
-    // {
-    //   id: '13',
-    //   location: 'Viagem para o Rio de Janeiro',
-    //   expectedDate: ' 07/11/2023',
-    //   returnDate: '20/11/2023',
-    //   investment: '1.000,00',
-    // },
+    {
+      id: '1',
+      location: 'Viagem para o Rio de Janeiro',
+      expectedDate: ' 07/11/2023',
+      returnDate: '20/11/2023',
+      investment: '1.000,00',
+    },
+    {
+      id: '2',
+      location: 'Viagem para o Rio de Janeiro',
+      expectedDate: ' 07/11/2023',
+      returnDate: '20/11/2023',
+      investment: '1.000,00',
+    },
+    {
+      id: '3',
+      location: 'Viagem para o Rio de Janeiro',
+      expectedDate: ' 07/11/2023',
+      returnDate: '20/11/2023',
+      investment: '1.000,00',
+    },
+    {
+      id: '4',
+      location: 'Viagem para o Rio de Janeiro',
+      expectedDate: ' 07/11/2023',
+      returnDate: '20/11/2023',
+      investment: '1.000,00',
+    },
+    {
+      id: '5',
+      location: 'Viagem para o Rio de Janeiro',
+      expectedDate: ' 07/11/2023',
+      returnDate: '20/11/2023',
+      investment: '1.000,00',
+    },
+    {
+      id: '6',
+      location: 'Viagem para o Rio de Janeiro',
+      expectedDate: ' 07/11/2023',
+      returnDate: '20/11/2023',
+      investment: '1.000,00',
+    },
+    {
+      id: '7',
+      location: 'Viagem para o Rio de Janeiro',
+      expectedDate: ' 07/11/2023',
+      returnDate: '20/11/2023',
+      investment: '1.000,00',
+    },
+    {
+      id: '8',
+      location: 'Viagem para o Rio de Janeiro',
+      expectedDate: ' 07/11/2023',
+      returnDate: '20/11/2023',
+      investment: '1.000,00',
+    },
+    {
+      id: '9',
+      location: 'Viagem para o Rio de Janeiro',
+      expectedDate: ' 07/11/2023',
+      returnDate: '20/11/2023',
+      investment: '1.000,00',
+    },
+    {
+      id: '10',
+      location: 'Viagem para o Rio de Janeiro',
+      expectedDate: ' 07/11/2023',
+      returnDate: '20/11/2023',
+      investment: '1.000,00',
+    },
+    {
+      id: '11',
+      location: 'Viagem para o Rio de Janeiro',
+      expectedDate: ' 07/11/2023',
+      returnDate: '20/11/2023',
+      investment: '1.000,00',
+    },
+    {
+      id: '12',
+      location: 'Viagem para o Rio de Janeiro',
+      expectedDate: ' 07/11/2023',
+      returnDate: '20/11/2023',
+      investment: '1.000,00',
+    },
+    {
+      id: '13',
+      location: 'Viagem para o Rio de Janeiro',
+      expectedDate: ' 07/11/2023',
+      returnDate: '20/11/2023',
+      investment: '1.000,00',
+    },
   ]);
+
+  const navigation = useNavigation();
+
+  function handleEditFormTripNavigate(id: string) {
+    navigation.navigate('edit-trips');
+
+    console.log('id do usuário', id);
+  }
 
   return (
     <SafeAreaView className="flex-1 bg-white">
@@ -125,6 +134,9 @@ export function OngoingTrips() {
                 expectedDate={trip.expectedDate}
                 returnDate={trip.returnDate}
                 investment={trip.investment}
+                onEditFormTripNavigate={() =>
+                  handleEditFormTripNavigate(trip.id)
+                }
               />
             )}
             ListEmptyComponent={() => <ListEmpty />}

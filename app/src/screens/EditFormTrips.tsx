@@ -13,7 +13,7 @@ import { Upload } from '../assets/Upload';
 import { formatCurrency } from '../utils/formatCurrency';
 import { formatDate } from '../utils/formatDate';
 
-export function TravelRegistration() {
+export function EditFormTrips() {
   const navigation = useNavigation();
 
   const [destiny, setDestiny] = useState('');
@@ -145,14 +145,14 @@ export function TravelRegistration() {
               onPress={handleRegisterTrip}
               className="w-[100px]"
             >
-              Salvar
+              Concluído
             </Button>
             <Button
               smallText
               onPress={handleCancel}
               className="w-[100px] bg-coral-600"
             >
-              Cancelar
+              Andamento
             </Button>
           </View>
         </View>

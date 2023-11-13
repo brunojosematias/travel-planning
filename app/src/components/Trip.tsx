@@ -7,6 +7,7 @@ type Props = {
   expectedDate: string;
   returnDate: string;
   investment: string;
+  onEditFormTripNavigate: () => void;
 };
 
 export function Trip({
@@ -14,7 +15,12 @@ export function Trip({
   expectedDate,
   investment,
   returnDate,
+  onEditFormTripNavigate,
 }: Props) {
+  function handleEditFormTrip() {
+    onEditFormTripNavigate();
+  }
+
   return (
     <TouchableOpacity className="flex-row justify-between items-center border-gray-400 border-[0.5px] py-2 px-[14px] mb-[15px] rounded-[5px] ">
       <View>
@@ -35,7 +41,7 @@ export function Trip({
         </View>
       </View>
 
-      <TouchableOpacity>
+      <TouchableOpacity onPress={handleEditFormTrip}>
         <Edit />
       </TouchableOpacity>
     </TouchableOpacity>
