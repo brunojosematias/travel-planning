@@ -27,6 +27,7 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth:sanctum')->group(function () {
     // Autenticação
     Route::post('/auth/logout', [AuthController::class, 'logout']);
+    Route::put('/auth/update', [AuthController::class, 'update']);
     // Viagens
     Route::post('/trip/register', [TripController::class, 'register']);
     Route::put('/trip/finish/{id}', [TripController::class, 'finish']);

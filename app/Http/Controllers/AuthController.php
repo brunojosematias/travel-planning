@@ -23,9 +23,22 @@ class AuthController extends Controller
         try {
             $response = $this->userService->create($register);
             if ($response) {
-                return response('Cadastro efetuado com sucesso!', 200);
+                return response(['data' => 'Cadastro efetuado com sucesso!'], 200);
             }
-            return response('Falha ao cadastrar', 500);
+            return response(['data' => 'Falha ao cadastrar'], 500);
+        } catch (Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+
+    public function update(UserCreateRequest $register)
+    {
+        try {
+            $response = $this->userService->update($register);
+            if ($response) {
+                return response(['data' => 'Atualizado com sucesso!'], 200);
+            }
+            return response(['data' => 'Falha ao atualizar'], 500);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
