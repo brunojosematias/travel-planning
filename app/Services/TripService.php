@@ -24,7 +24,8 @@ class TripService
                     'data_fim' => $trip->data_fim,
                     'destino' => $trip->destino,
                     'orcamento' => $trip->orcamento,
-                    'status' => StatusEnum::ACTIVED->value
+                    'status' => StatusEnum::ACTIVED->value,
+                    'photo' => $trip->photo
                 ]
             );
         } catch (\Exception $e) {
