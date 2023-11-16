@@ -32,6 +32,27 @@ class TripService
         }
     }
 
+    public function update(ITripCreateRequest $trip, int $id)
+    {
+        try {
+            if (auth()->user())
+                $id = auth()->user()->id;
+            else
+                $id = $trip->user_id;
+            return Viagem::query()->where('id', $trip->id)->where('user_id', $id)->update(
+                [
+                    'data_inicio' => $trip->data_inicio,
+                    'data_fim' => $trip->data_fim,
+                    'destino' => $trip->destino,
+                    'orcamento' => $trip->orcamento,
+                    'photo' => $trip->photo
+                ]
+            );
+        } catch (\Exception $e) {
+            throw new \Exception ($e->getMessage());
+        }
+    }
+
     public function remove(int $id)
     {
         try {
