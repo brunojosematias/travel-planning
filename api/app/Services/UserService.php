@@ -19,6 +19,35 @@ class UserService
         }
     }
 
+    public function update(IUserCreateRequest $user)
+    {
+        try {
+            $userExists = User::query()->where('id', '=', auth()->user()->id)->first();
+            if (!$userExists) {
+                throw new \Exception('Usuário não identificado.');
+            }
+
+            if (count(explode(' ', $user->name)) < 2) {
+                throw new \Exception('Nome do usuário é curto demais.');
+            }
+
+            return User::query()->where('id', auth()->user()->id)->update(
+                [
+                    'name' => $user->name,
+                    // 'email' => $user->email,
+                    // 'password'=> $user->password,
+                    'cpf' => $user->cpf,
+                    'birthday' => $user->birthday,
+                    'photo' => $user->photo,
+                    //'role' => $user->role,
+                    // telephone' => $user->telephone,
+                ]
+            );
+        } catch (\Exception $e) {
+            throw new \Exception ($e->getMessage());
+        }
+    }
+
     public function create(IUserCreateRequest $user)
     {
         try {
@@ -39,8 +68,9 @@ class UserService
                     'password'=> $user->password,
                     'cpf' => $user->cpf,
                     'birthday' => $user->birthday,
+                    'photo' => $user->photo,
                     //'role' => $user->role,
-                    'telephone' => $user->telephone,
+                    // telephone' => $user->telephone,
                 ]
             );
         } catch (\Exception $e) {

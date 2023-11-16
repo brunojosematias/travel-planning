@@ -14,11 +14,12 @@ class UserCreateRequest extends CustomRequest implements IUserCreateRequest
      */
     public function rules(): array {
         return [
-            'email' => ['required', 'email', Rule::unique('users', 'email')],
+            'email' => ['required', 'email'],
             'name' => 'required|min:5|max:50',
             'password' => 'required|min:5|max:10',
             'cpf' => 'required|numeric|min:11',
             'rg' => 'nullable|numeric|min:11',
+            'photo' => 'nullable|max:250',
             'birthday' => 'required|date',
         ];
     }
@@ -35,6 +36,7 @@ class UserCreateRequest extends CustomRequest implements IUserCreateRequest
             'name.min' => 'Um nome deve ter pelo menos 5 caracteres!',
             'name.max' => 'Um nome deve ter até 50 caracteres!',
             'password.min' => 'A senha deve ter pelo menos 5 caracteres!',
+            'photo.max' => 'A foto não pode ser superior a 250 caracteres!',
             //'password.confirmed' => 'As senhas devem ser iguais!',
             'cpf.min' => 'Um CPF deve conter pelo menos 11 digitos!',
             'rg.min' => 'Um RG deve conter pelo menos 11 digitos!',

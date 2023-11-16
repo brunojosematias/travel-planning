@@ -42,6 +42,19 @@ class TripController extends Controller
         }
     }
 
+    public function update(int $id, TripCreateRequest $trip)
+    {
+        try {
+            $response = $this->tripService->update($trip, $id);
+            if ($response) {
+                return response(['data' => 'Atualizado com sucesso!'], 200);
+            }
+            return response(['data' => 'Falha ao cadastrar'], 500);
+        } catch (Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+
     public function show(int $id)
     {
         try {

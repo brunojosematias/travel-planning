@@ -14,6 +14,7 @@ class TripCreateRequest extends CustomRequest implements ITripCreateRequest
      */
     public function rules(): array {
         return [
+            'id' => 'numeric',
             'destino' => 'required|max:50',
             'data_inicio' => 'required|date',
             'data_fim' => 'required|date',
