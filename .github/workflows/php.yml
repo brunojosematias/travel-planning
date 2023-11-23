@@ -19,7 +19,7 @@ jobs:
     
     # Limpando cache do composer e removendo o diretório vendor
     - name: Clear Composer Cache
-      run: composer clear-cache
+      run: |
         composer clear-cache
         rm -rf ./api/vendor
       
