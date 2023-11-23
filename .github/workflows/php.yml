@@ -16,6 +16,17 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    
+    # Limpando cache do composer
+    - name: Clear Composer Cache
+      run: composer clear-cach
+      
+    # Instalando composer
+    - name: Install Composer
+      run: |
+        php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+        php composer-setup.php --install-dir=./api --filename=composer
+        php -r "unlink('composer-setup.php');"
 
     - name: Update Composer.lock
       working-directory: ./api
@@ -33,16 +44,18 @@ jobs:
     - name: Install dependencies
       working-directory: ./api
       run: composer install --prefer-dist --no-progress
-
+      
+    # Instalando PHPUnit
     - name: Install PHPUnit
       working-directory: ./api
       run: composer require --dev phpunit/phpunit
-
+      
+    # Informações de depuração da execução do PHPUnit
     - name: Debug Info
       run: |
         php -v
         ./vendor/bin/phpunit --version  
-
+    
     - name: Run PHPUnit Test
       working-directory: ./api/tests
       run: composer test
