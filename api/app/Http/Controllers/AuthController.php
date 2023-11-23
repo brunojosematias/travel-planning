@@ -53,6 +53,7 @@ class AuthController extends Controller
                 $response['token'] =  $user->createToken('neptune_mosaic')->plainTextToken; 
                 $response['name'] =  $user->name;
                 $response['email'] =  $user->email;
+                $response['photo'] =  $user->photo;
                 return response(['data' => $response], 200);
             } else { 
                 return response(['data' => 'Não autorizado'], 500);
