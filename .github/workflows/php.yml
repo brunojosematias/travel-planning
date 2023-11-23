@@ -38,7 +38,12 @@ jobs:
       working-directory: ./api
       run: composer require --dev phpunit/phpunit
 
-    - name: Run test suite
+    - name: Debug Info
+      run: |
+        php -v
+        ./vendor/bin/phpunit --version  
+
+    - name: Run PHPUnit Tests
       working-directory: ./api
       run: composer test
 
