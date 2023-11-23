@@ -43,7 +43,7 @@ jobs:
         php -v
         ./vendor/bin/phpunit --version  
 
-    - name: Run PHPUnit Tests
+    - name: Run PHPUnit Test
       working-directory: ./api/tests
       run: composer test
 
