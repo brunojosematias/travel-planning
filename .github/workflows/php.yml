@@ -44,7 +44,7 @@ jobs:
         ./vendor/bin/phpunit --version  
 
     - name: Run PHPUnit Tests
-      working-directory: ./api
+      working-directory: ./api/tests
       run: composer test
 
     # Qualidade de Código
