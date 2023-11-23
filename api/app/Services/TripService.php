@@ -99,6 +99,9 @@ class TripService
             if (isset($request->data_fim)) {
                 $query->where('data_fim', '<=', $request->data_fim);
             }
+            if (isset($request->user_id) && is_numeric($request->user_id)) {
+                $query->where('user_id', $request->user_id);
+            }
             return $query->paginate($limit);
         } catch (\Exception $e) {
             throw new \Exception ($e->getMessage());
