@@ -31,12 +31,15 @@ jobs:
           ${{ runner.os }}-php-
 
     - name: Install dependencies
+      working-directory: ./api
       run: composer install --prefer-dist --no-progress
 
     - name: Install PHPUnit
+      working-directory: ./api
       run: composer require --dev phpunit/phpunit
 
     - name: Run test suite
+      working-directory: ./api
       run: composer test
 
     # Qualidade de Código
