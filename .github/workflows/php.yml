@@ -56,7 +56,7 @@ jobs:
     - name: Debug Info
       run: |
         php -v
-        ./vendor/bin/phpunit --version  
+        .api/vendor/bin/phpunit --version  
     
     - name: Run PHPUnit Test
       working-directory: ./api/tests
