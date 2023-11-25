@@ -26,6 +26,7 @@ return array(
     'App\\Http\\Requests\\CustomRequest' => $baseDir . '/app/Http/Requests/CustomRequest.php',
     'App\\Http\\Requests\\ITripCreateRequest' => $baseDir . '/app/Http/Requests/ITripCreateRequest.php',
     'App\\Http\\Requests\\IUserCreateRequest' => $baseDir . '/app/Http/Requests/IUserCreateRequest.php',
+    'App\\Http\\Requests\\IUserUpdateRequest' => $baseDir . '/app/Http/Requests/IUserUpdateRequest.php',
     'App\\Http\\Requests\\LoginRequest' => $baseDir . '/app/Http/Requests/LoginRequest.php',
     'App\\Http\\Requests\\TripCreateRequest' => $baseDir . '/app/Http/Requests/TripCreateRequest.php',
     'App\\Http\\Requests\\UserCreateRequest' => $baseDir . '/app/Http/Requests/UserCreateRequest.php',

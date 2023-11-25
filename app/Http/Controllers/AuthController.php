@@ -48,16 +48,17 @@ class AuthController extends Controller
     {
         try {
             if(Auth::attempt(['email' => $login->email, 'password' => $login->password]))
-            { 
-                $user = Auth::user(); 
-                $response['token'] =  $user->createToken('neptune_mosaic')->plainTextToken; 
+            {
+                $user = Auth::user();
+                $response['token'] =  $user->createToken('neptune_mosaic')->plainTextToken;
+                $response['id'] =  $user->id;
                 $response['name'] =  $user->name;
                 $response['email'] =  $user->email;
                 $response['photo'] =  $user->photo;
                 return response(['data' => $response], 200);
-            } else { 
+            } else {
                 return response(['data' => 'Não autorizado'], 500);
-            } 
+            }
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }

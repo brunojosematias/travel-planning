@@ -549,6 +549,7 @@ class ComposerStaticInit463f224374c0510e6d214606bb5b4159
         'App\\Http\\Requests\\CustomRequest' => __DIR__ . '/../..' . '/app/Http/Requests/CustomRequest.php',
         'App\\Http\\Requests\\ITripCreateRequest' => __DIR__ . '/../..' . '/app/Http/Requests/ITripCreateRequest.php',
         'App\\Http\\Requests\\IUserCreateRequest' => __DIR__ . '/../..' . '/app/Http/Requests/IUserCreateRequest.php',
+        'App\\Http\\Requests\\IUserUpdateRequest' => __DIR__ . '/../..' . '/app/Http/Requests/IUserUpdateRequest.php',
         'App\\Http\\Requests\\LoginRequest' => __DIR__ . '/../..' . '/app/Http/Requests/LoginRequest.php',
         'App\\Http\\Requests\\TripCreateRequest' => __DIR__ . '/../..' . '/app/Http/Requests/TripCreateRequest.php',
         'App\\Http\\Requests\\UserCreateRequest' => __DIR__ . '/../..' . '/app/Http/Requests/UserCreateRequest.php',
