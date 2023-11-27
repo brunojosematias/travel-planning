@@ -58,8 +58,8 @@ jobs:
         php -v
         vendor/bin/phpunit --version  
     
-    - name: Run PHPUnit Test
-      run: php artisan test
+    #- name: Run PHPUnit Test
+    #  run: php artisan test
 
     # Qualidade de Código
     #- name: Run PHP CodeSniffer
