@@ -21,17 +21,17 @@ jobs:
     - name: Clear Composer Cache
       run: |
         composer clear-cache
-        rm -rf ./api/vendor
+        rm -rf /vendor
       
     # Instalando composer
     - name: Install Composer
       run: |
         php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-        php composer-setup.php --install-dir=./api --filename=composer
+        php composer-setup.php --filename=composer
         php -r "unlink('composer-setup.php');"
 
     - name: Update Composer.lock
-      working-directory: ./api
+      working-directory: 
       run: composer update --lock
 
     - name: Cache Composer packages
@@ -44,22 +44,22 @@ jobs:
           ${{ runner.os }}-php-
 
     - name: Install dependencies
-      working-directory: ./api
+      working-directory: 
       run: composer install --prefer-dist --no-progress
       
     # Instalando PHPUnit
     - name: Install PHPUnit
-      working-directory: ./api
+      working-directory: 
       run: composer require --dev phpunit/phpunit
       
     # Informações de depuração da execução do PHPUnit
     - name: Debug Info
       run: |
         php -v
-        .api/vendor/bin/phpunit --version  
+        vendor/bin/phpunit --version  
     
     - name: Run PHPUnit Test
-      working-directory: ./api/tests
+      working-directory: /tests
       run: php artisan test
 
     # Qualidade de Código
