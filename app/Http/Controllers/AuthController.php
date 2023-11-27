@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Services\UserService;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\UserCreateRequest;
+use App\Http\Requests\UserUpdatePhotoRequest;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -35,6 +36,19 @@ class AuthController extends Controller
     {
         try {
             $response = $this->userService->update($register);
+            if ($response) {
+                return response(['data' => 'Atualizado com sucesso!'], 200);
+            }
+            return response(['data' => 'Falha ao atualizar'], 500);
+        } catch (Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+
+    public function updatePhoto(UserUpdatePhotoRequest $update)
+    {
+        try {
+            $response = $this->userService->updatePhoto($update);
             if ($response) {
                 return response(['data' => 'Atualizado com sucesso!'], 200);
             }

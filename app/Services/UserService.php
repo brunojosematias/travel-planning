@@ -37,10 +37,27 @@ class UserService
                     // 'email' => $user->email,
                     // 'password'=> $user->password,
                     'cpf' => $user->cpf,
-                    'birthday' => $user->birthday,
-                    'photo' => $user->photo,
+                    'birthday' => $user->birthday
                     //'role' => $user->role,
                     // telephone' => $user->telephone,
+                ]
+            );
+        } catch (\Exception $e) {
+            throw new \Exception ($e->getMessage());
+        }
+    }
+
+    public function updatePhoto(IUserCreateRequest $user)
+    {
+        try {
+            $userExists = User::query()->where('id', '=', auth()->user()->id)->first();
+            if (!$userExists) {
+                throw new \Exception('Usuário não identificado.');
+            }
+
+            return User::query()->where('id', auth()->user()->id)->update(
+                [
+                    'photo' => $user->photo,
                 ]
             );
         } catch (\Exception $e) {
