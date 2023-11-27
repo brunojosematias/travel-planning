@@ -54,6 +54,106 @@
 			"response": []
 		},
 		{
+			"name": "Atualizar Usuário",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "3|tJF7mwrp5lhXJwbUeD1rHK7RkXelAdDiXZy3xzj718f0dc2a",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/auth/update?email=cgabrieltd@gmail.com&password=a12345&name=Caíque Gabriel&birthday=1998-06-02&cpf=10000000000&photo=Nothing To Do",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"auth",
+						"update"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "cgabrieltd@gmail.com"
+						},
+						{
+							"key": "password",
+							"value": "a12345"
+						},
+						{
+							"key": "name",
+							"value": "Caíque Gabriel"
+						},
+						{
+							"key": "birthday",
+							"value": "1998-06-02"
+						},
+						{
+							"key": "cpf",
+							"value": "10000000000"
+						},
+						{
+							"key": "photo",
+							"value": "Nothing To Do"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Atualizar Apenas Usuário",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "3|tJF7mwrp5lhXJwbUeD1rHK7RkXelAdDiXZy3xzj718f0dc2a",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/auth/updatePhoto?photo=_teste_",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"auth",
+						"updatePhoto"
+					],
+					"query": [
+						{
+							"key": "photo",
+							"value": "_teste_"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Login",
 			"request": {
 				"method": "POST",
@@ -129,7 +229,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "1|i8ctsgVZDiE09V68Bl7eUUCCZDh1c92KqF4ilShL34dc89d6",
+							"value": "1|fDJRcGkrtah0K4LWTfRDleq4yE2NdWlTFUH4ZoO311db1cba",
 							"type": "string"
 						}
 					]
@@ -137,7 +237,7 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:8000/api/trip/register?data_inicio=2023-09-05&data_fim=2023-09-10&orcamento=12500&destino=São Paulo",
+					"raw": "http://127.0.0.1:8000/api/trip/register?data_inicio=2023-09-05&data_fim=2023-09-10&orcamento=12500&id_local=1&photo=3",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -165,8 +265,12 @@
 							"value": "12500"
 						},
 						{
-							"key": "destino",
-							"value": "São Paulo"
+							"key": "id_local",
+							"value": "1"
+						},
+						{
+							"key": "photo",
+							"value": "3"
 						}
 					]
 				}
@@ -174,7 +278,64 @@
 			"response": []
 		},
 		{
-			"name": "Pegar um",
+			"name": "Atualizar viagem",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "1|fDJRcGkrtah0K4LWTfRDleq4yE2NdWlTFUH4ZoO311db1cba",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/trip/update/2?data_inicio=2023-09-05&data_fim=2023-09-10&orcamento=12500&destino=São Paulo&photo=Photo",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"trip",
+						"update",
+						"2"
+					],
+					"query": [
+						{
+							"key": "data_inicio",
+							"value": "2023-09-05"
+						},
+						{
+							"key": "data_fim",
+							"value": "2023-09-10"
+						},
+						{
+							"key": "orcamento",
+							"value": "12500"
+						},
+						{
+							"key": "destino",
+							"value": "São Paulo"
+						},
+						{
+							"key": "photo",
+							"value": "Photo"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pegar uma viagem",
 			"request": {
 				"auth": {
 					"type": "bearer",
@@ -209,14 +370,14 @@
 			"response": []
 		},
 		{
-			"name": "Pegar vários",
+			"name": "Pegar várias viagens",
 			"request": {
 				"auth": {
 					"type": "bearer",
 					"bearer": [
 						{
 							"key": "token",
-							"value": "1|i8ctsgVZDiE09V68Bl7eUUCCZDh1c92KqF4ilShL34dc89d6",
+							"value": "2|WhaS6WEmsuK1PRC23Vsj8turc6WYexTAgFWEwWzR7fc1a8fa",
 							"type": "string"
 						}
 					]
@@ -224,7 +385,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:8000/api/trip/showAll",
+					"raw": "http://127.0.0.1:8000/api/trip/showAll?user_id=1",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -237,6 +398,80 @@
 						"api",
 						"trip",
 						"showAll"
+					],
+					"query": [
+						{
+							"key": "user_id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Carregar cidades em Locais",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "2|WhaS6WEmsuK1PRC23Vsj8turc6WYexTAgFWEwWzR7fc1a8fa",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/local/up",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"local",
+						"up"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar cidades",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "2|WhaS6WEmsuK1PRC23Vsj8turc6WYexTAgFWEwWzR7fc1a8fa",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/local/list",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"local",
+						"list"
 					]
 				}
 			},
@@ -250,7 +485,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "1|i8ctsgVZDiE09V68Bl7eUUCCZDh1c92KqF4ilShL34dc89d6",
+							"value": "1|fDJRcGkrtah0K4LWTfRDleq4yE2NdWlTFUH4ZoO311db1cba",
 							"type": "string"
 						}
 					]
@@ -258,7 +493,7 @@
 				"method": "PUT",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:8000/api/trip/finish/1",
+					"raw": "http://127.0.0.1:8000/api/trip/finish/2",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -271,7 +506,7 @@
 						"api",
 						"trip",
 						"finish",
-						"1"
+						"2"
 					]
 				}
 			},
