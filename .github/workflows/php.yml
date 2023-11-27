@@ -60,7 +60,7 @@ jobs:
     
     - name: Run PHPUnit Test
       working-directory: ./api/tests
-      run: composer test
+      run: php artisan test
 
     # Qualidade de Código
     #- name: Run PHP CodeSniffer
