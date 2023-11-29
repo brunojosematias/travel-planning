@@ -19,7 +19,7 @@ class Local extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = ['link', 'tipo', 'nome'];
+    protected $fillable = ['photo', 'link', 'tipo', 'nome'];
 
     /**
      * The attributes that should be hidden for serialization.
