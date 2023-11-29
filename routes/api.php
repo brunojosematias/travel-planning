@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\GymController;
+use App\Http\Controllers\LocalController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\TripController;
 use App\Http\Controllers\UserController;
@@ -35,4 +36,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::put('/trip/update/{id}', [TripController::class, 'update']);
     Route::get('/trip/show/{id}', [TripController::class, 'show']);
     Route::get('/trip/showAll', [TripController::class, 'showAll']);
+    Route::get('/local/up', [LocalController::class, 'up']);
+    Route::get('/local/down', [LocalController::class, 'down']);
+    Route::get('/local/list', [LocalController::class, 'list']);
 });
